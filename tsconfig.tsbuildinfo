@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/layout.tsx","./src/pages/deckdetail.tsx","./src/pages/decks.tsx","./src/pages/home.tsx","./src/pages/study.tsx","./src/pages/timer.tsx","./src/store/deckscontext.tsx","./src/store/usedecks.ts","./src/types/index.ts","./src/utils/storage.ts"],"version":"5.6.3"}

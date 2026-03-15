@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+*.local
+
+# Env (never commit API keys)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
