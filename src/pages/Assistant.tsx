@@ -77,8 +77,61 @@ async function callFreeApi(userText: string, prevMessages: Message[]): Promise<s
     } catch {
       clearTimeout(t2)
     }
-    throw new Error('Free AI server is busy or unavailable. Try again in a minute or use "Groq (free key)" below.')
+    return buildOfflineStudyReply(userText)
   }
+}
+
+function buildOfflineStudyReply(userText: string): string {
+  const q = userText.trim()
+  const lower = q.toLowerCase()
+
+  if (lower.includes('binary search')) {
+    return [
+      'Binary search works on a sorted array.',
+      '1) Keep two pointers: low=0 and high=n-1.',
+      '2) Check mid = floor((low+high)/2).',
+      '3) If arr[mid] == target, done.',
+      '4) If target < arr[mid], move high = mid - 1, else low = mid + 1.',
+      'Time complexity: O(log n), space: O(1).',
+    ].join('\n')
+  }
+
+  if (lower.includes('time complexity') || lower.includes('big o')) {
+    return [
+      'Quick Big-O tip:',
+      '- O(1): constant work',
+      '- O(log n): divide-and-conquer (binary search)',
+      '- O(n): single loop',
+      '- O(n log n): efficient sorting (merge/heap/quick avg)',
+      '- O(n^2): nested loops',
+      '',
+      'Share your exact algorithm and I will derive its complexity step-by-step.',
+    ].join('\n')
+  }
+
+  if (lower.includes('derivative') || lower.includes('integration') || lower.includes('calculus')) {
+    return [
+      'Calculus quick method:',
+      '1) Identify the rule (power, product, quotient, chain).',
+      '2) Simplify expression first if possible.',
+      '3) Apply rule carefully and verify units/sign.',
+      '',
+      'Send the exact expression, and I will solve it line-by-line.',
+    ].join('\n')
+  }
+
+  return [
+    'Free AI server is currently unavailable, so I am using offline study-help mode.',
+    '',
+    `Your question: "${q}"`,
+    '',
+    'I can still help you with a structured approach:',
+    '1) Break the topic into definition, intuition, formula/algorithm, and example.',
+    '2) Solve one simple example by hand.',
+    '3) Check edge cases and common mistakes.',
+    '',
+    'Reply with the exact problem statement, and I will guide you step-by-step.',
+  ].join('\n')
 }
 
 export default function Assistant() {
