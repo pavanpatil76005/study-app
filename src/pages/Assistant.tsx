@@ -96,7 +96,6 @@ export default function Assistant() {
   const groqKey = getStoredKey('groq')
   const hasOpenaiKey = openaiKey.length > 0
   const hasGroqKey = groqKey.length > 0
-  const hasKey = provider === 'free' || (provider === 'groq' ? (hasGroqKey || groqKeyInput.trim().length > 0) : (hasOpenaiKey || openaiKeyInput.trim().length > 0))
 
   const setProvider = (p: Provider) => {
     setProviderState(p)

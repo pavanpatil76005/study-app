@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider, useAuth } from './store/AuthContext'
+import { AuthProvider } from './store/AuthContext'
 import { DecksProvider } from './store/DecksContext'
 import { SubjectsProvider } from './store/SubjectsContext'
 import Layout from './components/Layout'

@@ -51,7 +51,7 @@ export async function registerUser(
   email: string,
   password: string,
   name: string
-): Promise<{ user: User; error?: string }> {
+): Promise<{ user: User | null; error?: string }> {
   const trimmedEmail = email.trim().toLowerCase()
   const trimmedName = name.trim() || trimmedEmail.split('@')[0]
   if (!trimmedEmail || !password) {
